@@ -28,7 +28,7 @@ def edit
 end
 
 def update
-  if @pin.update(pin.params)
+  if @pin.update(pin_params)
     redirect_to @pin, notice: "Pin was Successfully updated"
   else
     render 'edit'
@@ -44,7 +44,7 @@ end
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description)
+    params.require(:pin).permit(:title, :description, :image)
   end
 
   def find_pin
